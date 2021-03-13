@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --host=0.0.0.0 -o",
+    "build": "ng build --prod --build-optimizer --delete-output-path --aot",
+    "postbuild": "gzip-all \"fb-video/*.*\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -12,10 +13,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.5",
+    "@angular/cdk": "^11.2.4",
     "@angular/common": "~11.2.5",
     "@angular/compiler": "~11.2.5",
     "@angular/core": "~11.2.5",
+    "@angular/flex-layout": "^11.0.0-beta.33",
     "@angular/forms": "~11.2.5",
+    "@angular/material": "^11.2.4",
     "@angular/platform-browser": "~11.2.5",
     "@angular/platform-browser-dynamic": "~11.2.5",
     "@angular/router": "~11.2.5",
@@ -30,6 +34,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "gzip-all": "^1.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.1.0",
